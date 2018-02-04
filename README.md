@@ -1,1 +1,1 @@
-# SuftUniLearning
+My exercises during my training in SoftUni
