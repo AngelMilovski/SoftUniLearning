@@ -1,1 +1,1 @@
-My exercises during my training in SoftUni
+My exercises during my training in SoftUni.
