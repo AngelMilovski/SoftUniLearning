@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'PT Sans', sans-serif;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #D67472;
+    margin-right: 30px;
+    font-weight: bold;
+}
+
+hr {
+    width: 50px;
+    height: 3px;
+    display: inline-block;
+    border: none;
+    margin: 20px auto;
+}
+
+.first-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('./img/flowers.png') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+.first-section h1 {
+    padding-top: 200px;
+    font-size: 36px;
+}
+
+.third-section hr,
+.first-section hr {
+    background: #D67472
+}
+
+.second-section p,
+.first-section p {
+    padding-bottom: 200px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.second-section {
+    background: #D67472;
+    color: white;
+    text-align: center;
+}
+
+.second-section h4 {
+    padding-top: 30px;
+}
+
+.second-section hr {
+    background: white;
+}
+
+.second-section p {
+    padding-bottom: 30px;
+}
+
+.second-section button {
+    margin-bottom: 30px;
+    padding: 5px 10px;
+    background: transparent;
+    color: white;
+    font-size: 22px;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+.third-section {
+    text-align: center;
+}
+
+.third-section h2 {
+    padding-top: 30px;
+}
+
+.third-section img {
+    width: 100px;
+    height: 100px;
+}
+
+.third-section li {
+    list-style: none;
+    display: inline-block;
+    width: 20%;
+    padding-bottom: 30px;
+}
+
+.third-section li:not(:last-child) {
+    margin-right: 40px;
+}
+
+.third-section p {
+   font-weight: 100;
+}
+
+footer {
+    background: #D67472;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
