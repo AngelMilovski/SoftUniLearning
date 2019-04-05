@@ -48,9 +48,9 @@ module.exports = {
   },
   postEdit: function (req, res) {
     let id = req.params.id;
-    let status = req.body.status;
+    let data = req.body;
     Task
-      .findByIdAndUpdate(id, { status })
+      .findByIdAndUpdate(id, data)
       .then(() => {
       res.redirect('/');
       })
