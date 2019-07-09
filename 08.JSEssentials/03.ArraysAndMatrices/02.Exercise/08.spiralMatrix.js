@@ -14,7 +14,6 @@ function spiralMatrix(dimension1, dimension2) {
     while (startRow <= endRow || startCol <= endCol) {
         for (let i = startCol; i <= endCol; i++) {
             matrix[startRow][i] = number++;
-
         }
 
         for (let i = startRow + 1; i <= endRow; i++) {

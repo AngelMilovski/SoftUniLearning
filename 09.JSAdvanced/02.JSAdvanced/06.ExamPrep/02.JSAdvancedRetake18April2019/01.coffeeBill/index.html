@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Bill</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <h2>Coffee Bill</h2>
+    <table id="bill">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="product-list"></tbody>
+        <tfoot>
+            <tr>
+                <td>Total:</td>
+                <td>0.00</td>
+            </tr>
+        </tfoot>
+    </table>
+    <section id="add-product">
+        <h3>Add new product</h3>
+        <label>
+            <span>
+                Product:
+            </span>
+            <input type="text">
+        </label>
+        <label>
+            <span>
+                Price:
+            </span>
+            <input type="number">
+        </label>
+        <button onclick="addProduct()">Add</button>
+    </section>
+
+    <script>
+        function addProduct() {
+            const selectors = {
+                tableBody: '#product-list',
+                tableFootTr: '#bill tfoot tr',
+                product: 'input[type="text"]',
+                price: 'input[type="number"]'
+            }
+
+            const tfoot = document.querySelector(selectors.tableFootTr);
+            const productName = document.querySelector(selectors.product).value;
+            const productPrice = +document.querySelector(selectors.price).value;
+            document.querySelector(selectors.product).value = '';
+            document.querySelector(selectors.price).value = '';
+
+            if (productName && productPrice) {
+                if (productPrice < 1) {
+                    return;
+                }
+
+                const row = createProduct(productName, productPrice);
+                document
+                    .querySelector(selectors.tableBody)
+                    .appendChild(row);
+
+                const totalPrice = calculateTotalPrice(productPrice);
+                document
+                    .querySelector(selectors.tableFootTr)
+                    .lastElementChild
+                    .textContent = totalPrice;
+            }
+
+            function calculateTotalPrice(productPrice) {
+                const currentTotal = +document
+                    .querySelector(selectors.tableFootTr)
+                    .lastElementChild
+                    .textContent;
+                const total = currentTotal + productPrice;
+                return total;
+            }
+
+            function createProduct(productName, productPrice) {
+                const tr = getTemplate().cloneNode(true);
+                tr.firstElementChild.innerHTML = productName;
+                tr.lastElementChild.innerHTML = productPrice;
+                return tr;
+            }
+
+            function getTemplate() {
+                const trTemplate = document.createElement('tr');
+                const productTd = document.createElement('td');
+                const priceTd = document.createElement('td');
+                trTemplate.appendChild(productTd);
+                trTemplate.appendChild(priceTd);
+                return trTemplate;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
